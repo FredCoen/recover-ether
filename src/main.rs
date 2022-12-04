@@ -4,9 +4,10 @@ use ethers::utils::{get_create2_address, hex, keccak256};
 use std::env;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let query = &args[1..];
-
+    let mut args: Vec<String> = env::args().collect();
+    let query = &mut args[1..];
+    query[2].remove(0);
+    query[2].remove(0);
     let target_address = query[0].to_string().parse::<Address>().unwrap();
     let mut iterator_count = 0;
     let mut count: u128 = 0;
@@ -24,8 +25,7 @@ fn main() {
         let init_code = Bytes::from(hex::decode(bytecode_in_hex_with_wrgs).unwrap());
 
         let create2_addresss = get_create2_address(deployer_address, salt, init_code);
-        println!("{}", create2_addresss);
-        if count % 100_000 == 0 {
+        if count + 1 % 100_000 == 0 {
             iterator_count += 1;
             println!("Attempted salts: {}*100K", iterator_count);
         }

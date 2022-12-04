@@ -9,7 +9,7 @@ Set your `.env` file according to `.env.example`
 Run:
 
 ```
-set -a && source .env
+source .env
 ```
 
 Deploy the Deployer contract by running:
