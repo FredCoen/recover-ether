@@ -30,7 +30,7 @@ _Note:_ <target_address> in this context refers to the address from which you wa
 
 _Note:_ <owner_address> refers to the owner address of the RetrieveEther contract. An owner has to be set to prevent anyone from retrieving the recovered ether at the target address.
 
-_Note:_ An EVM address is 20 bytes long, so it can take up to 2^160 attempts to brute force the salt to get the target address. This is not feasible. However 2^80 gives you a 50% chance of finding it. That is around one septillion times, or 1.2089258196146291747 x 10^24. I have not yet found out how long this would take to run, but running this in parallel on a mutli core machine wil definitely speed it up. Feel free to submit a PR !
+_Note:_ An EVM address is 20 bytes long, so it can take up to 2^160 attempts to brute force the salt to get the target address. This is not feasible. However if you are lucky you can find it (with a very low probability though even if you run the programs for weeks). Running the computations in parallel on a mutli core machine wil definitely speed it up and increase the likelihood to find the salt succesfully. Feel free to submit a PR !
 
 If the salt is found, generate the calldata required to deploy the RetrieveEther contract to the target address.
 
